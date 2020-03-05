@@ -1,0 +1,112 @@
+import webbrowser
+
+
+
+
+#animal subclasses
+mammal = "animal that gives birth to babies"
+bird = "animal that gives birth to babies through eggs"
+reptile = "a cold-blooded vertebrate of a class that includes snakes, lizards, crocodiles, turtles and tortoises"
+insect = "a small arthropod animal that has six legs and generally one or two pairs of wings"
+fish = "a limbless cold-blooded vertebrate with gils and fins and living wholly in water"
+amphibian = "a cold-blooded vertebrate of a class that comprises the frogs, newts and salamanders"
+spider = "an eight-legged predatory arachnid with an unsegmanted body consisting of a fused head and thorax and a rounded abdomen"
+
+
+##animal names
+#honey bee
+#castor
+#cat
+#chameleon
+#mandarin_duck
+#emu
+#hawk
+#hare
+
+#animal species
+bee = "an insect of a large group to which the honey bee belongs"
+beaver = "a large semi-aquatic broad-tailed rodent that is native to North-America and northern Eurasia" 
+furball = "a small domesticated carnivorous mammal with soft fur, a short snout and retractile claws"
+very_small_lizard = "a small slow-moving Old World lizard with a prehensile tail, long, extensible tongue, protruding eyes that rotate independently and a highly developed ability to change colour"
+duck = "a water bird with a broad blunt bill, short legs, webbed feet, and a waddling gait"
+ostrich = "a large flightless fast-running Australian bird resembling the ostrich, with shaggy gray or brown plummage, bare blue skin on the neck and head and three toed-feet"
+falcon = "a diurnal bird of prey with long-pointed wings and a notched beak, typically catching prey by diving on it from above"
+rabbit = "a fast-running, long-eared mammal, having long hind legs and occuring typically in grassland or open woodland"
+
+
+honey_bee = dict({'honey bee': bee, 'other':insect, 'URL': "https://ro.wikipedia.org/wiki/Apis_mellifera#/media/File:Apis_mellifera_bi.jpg"})
+castor = dict({'castor': beaver, 'mammal': mammal, 'URL' : "https://destepti.ro/wp-content/uploads/2012/04/Castorul-american.jpg"})
+cat = dict({'cat': furball, 'mammal':mammal, 'URL':"https://www.catster.com/wp-content/uploads/2018/07/Savannah-cat-long-body-shot.jpg"})
+chameleon = dict({'chameleon': very_small_lizard, 'other':reptile, 'URL':"https://s7d2.scene7.com/is/image/PetSmart/ARHERO-ChameleonCareGuide-20161213?$AR0301$"})
+mandarin_duck = dict({'mandarin_duck': duck, 'other':bird, 'URL': "https://pbs.twimg.com/profile_images/1058137649775558656/ndy7_tI8_400x400.jpg" })
+emu = dict({'emu':ostrich, 'other':bird, 'URL':"https://media.australianmuseum.net.au/media/dd/images/emu.ab40226.width-1200.028b440.jpg"})
+hawk = dict({'hawk':falcon, 'other':bird, 'URL':"https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Brown-Falcon%2C-Vic%2C-3.1.2008.jpg/280px-Brown-Falcon%2C-Vic%2C-3.1.2008.jpg"})
+hare = dict({'hare':rabbit, 'mammal':mammal, 'URL':"https://i.pinimg.com/originals/62/e3/c1/62e3c13b3b3c29a0dcc302bedaedf6f6.jpg"})
+
+
+names = ["honey_bee", "castor", "cat", "chameleon", "mandarin_duck", "emu", "hawk", "hare"]
+
+dict_names_list = [honey_bee, castor, cat, chameleon, mandarin_duck, emu, hawk, hare]
+
+
+##retrieve definitions by key
+#honey_bee['honey bee']
+#mandarin_duck['mandarin_duck']
+#hare['hare']
+
+#define function to retrieve definitions by key
+def retrieve_def(dict, key):
+    return dict[key]
+
+
+##retrieve all names starting with letter...
+def retrieve_names(names, letter):
+    new_list = []
+    for item in names:
+         if item.startswith(letter):
+             new_list.append(item)
+    print(new_list)
+
+
+##retrieve animal names which belong to mammal or other
+def retrieve_category(dict_names_list):
+    mammal_list = []
+    other_category = []
+    for item in dict_names_list:
+        if 'mammal' in item:
+            mammal_list.append(item)
+    print("Mammal:", "\n")
+    for item in enumerate(mammal_list, 1):
+         print(item, "\n")
+         
+
+    for item in dict_names_list:
+        if 'mammal' not in item: 
+            other_category.append(item)
+    print("************\n","Other category:", "\n")
+    for item in enumerate(other_category, 1):
+        print(item, "\n")
+            
+            
+    
+
+##check if an animal belongs to mammal or other category
+def mammal_or_not(dict):
+    if 'mammal' in dict:
+        return True 
+    else:
+        return False
+
+
+##view picture for each animal
+#def function to open picture for each name when picking up one
+
+def show_image(dict):
+    image= dict['URL']
+    webbrowser.open(image)
+        
+    
+
+
+        
+        
